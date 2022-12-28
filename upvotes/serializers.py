@@ -14,6 +14,7 @@ class UpVoteSerializer(serializers.ModelSerializer):
             "owner",
             "champion_name",
             "created_at",
+            "champion",
         ]
 
     def create(self, validated_data):
