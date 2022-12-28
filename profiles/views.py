@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import generics
+from profiles.models import Profile
+from .serializers import ProfileSerializer
+from django.db.models import Count
 
-# Create your views here.
+
+class ProfileList(generics.ListAPIView):
+    serializer_class = ProfileSerializer
+    queryset = Profile.objects.all().order_by("-created_at")
