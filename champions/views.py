@@ -20,7 +20,9 @@ class ChampionDetail(generics.RetrieveAPIView):
 class ChampionCreate(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAdminUser]
     serializer_class = ChampionSerializer
-    queryset = Champion.objects.all().order_by("-created_at")
+    queryset = Champion.objects.annotate(
+        upvotes_count=Count("upvotes", distinct=True)
+    ).order_by("-created_at")
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
