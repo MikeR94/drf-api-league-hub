@@ -3,6 +3,7 @@ from champions.models import Champion
 from champions.serializers import ChampionSerializer
 from drf_api_league_hub.permissions import IsOwnerOrReadOnly
 from django.db.models import Count
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ChampionList(generics.ListAPIView):
@@ -10,8 +11,9 @@ class ChampionList(generics.ListAPIView):
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
     ).order_by("-created_at")
-    filter_backends = [filters.SearchFilter]
+    filter_backends = [filters.SearchFilter, DjangoFilterBackend]
     search_fields = ["name"]
+    filterset_fields = ["role"]
 
 
 class ChampionDetail(generics.RetrieveAPIView):
