@@ -9,14 +9,13 @@ class ChampionList(generics.ListAPIView):
     queryset = Champion.objects.all().order_by("-created_at")
 
 
-class ChampionDetail(generics.RetrieveUpdateAPIView):
-    permission_classes = [IsOwnerOrReadOnly]
+class ChampionDetail(generics.RetrieveAPIView):
     serializer_class = ChampionSerializer
     queryset = Champion.objects.all().order_by("-created_at")
 
 
 class ChampionCreate(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAdminUser]
     serializer_class = ChampionSerializer
     queryset = Champion.objects.all().order_by("-created_at")
 
