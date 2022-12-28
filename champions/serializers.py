@@ -1,14 +1,24 @@
 from rest_framework import serializers
 from champions.models import Champion
+from upvotes.models import UpVote
 
 
 class ChampionSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
+    upvotes_count = serializers.ReadOnlyField()
+    upvotes_id = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
         request = self.context["request"]
         return request.user == obj.owner
+
+    def get_upvotes_id(self, obj):
+        user = self.context["request"].user
+        if user.is_authenticated:
+            upvote = UpVote.objects.filter(owner=user, champion=obj).first()
+            return upvote.id if upvote else None
+        return None
 
     class Meta:
         model = Champion
@@ -18,6 +28,8 @@ class ChampionSerializer(serializers.ModelSerializer):
             "is_owner",
             "created_at",
             "updated_at",
+            "upvotes_count",
+            "upvotes_id",
             "name",
             "alias",
             "champ_image",
