@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from champions.models import Champion
 
 
-class Likes(models.Model):
+class UpVote(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     champion = models.ForeignKey(
         Champion, on_delete=models.CASCADE, related_name="likes"
