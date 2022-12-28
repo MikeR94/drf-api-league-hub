@@ -5,13 +5,14 @@ from django.db import IntegrityError
 
 class UpVoteSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
+    champion_name = serializers.ReadOnlyField(source="champion.name")
 
     class Meta:
         model = UpVote
         fields = [
             "id",
             "owner",
-            "champion",
+            "champion_name",
             "created_at",
         ]
 
