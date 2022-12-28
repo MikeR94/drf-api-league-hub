@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, filters
 from champions.models import Champion
 from champions.serializers import ChampionSerializer
 from drf_api_league_hub.permissions import IsOwnerOrReadOnly
@@ -10,6 +10,8 @@ class ChampionList(generics.ListAPIView):
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
     ).order_by("-created_at")
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name"]
 
 
 class ChampionDetail(generics.RetrieveAPIView):
