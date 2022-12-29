@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "dj_rest_auth.registration",
+    "corsheaders",
     "profiles",
     "champions",
     "upvotes",
@@ -97,6 +98,7 @@ REST_AUTH_SERIALIZERS = {
 
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
