@@ -6,12 +6,17 @@ from comments.serializers import (
     CommentDetailSerializer,
     CommentDeleteSerializer,
 )
+from django_filters.rest_framework import DjangoFilterBackend
 
 
 class CommentList(generics.ListCreateAPIView):
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Comment.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = [
+        "champion",
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
