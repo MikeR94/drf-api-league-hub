@@ -18,7 +18,9 @@ class ChampionList(generics.ListAPIView):
 
 class ChampionDetail(generics.RetrieveAPIView):
     serializer_class = ChampionSerializer
-    queryset = Champion.objects.all().order_by("-created_at")
+    queryset = Champion.objects.annotate(
+        upvotes_count=Count("upvotes", distinct=True)
+    ).order_by("-created_at")
 
 
 class ChampionCreate(generics.ListCreateAPIView):
