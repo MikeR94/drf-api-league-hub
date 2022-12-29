@@ -9,13 +9,16 @@ cloudinary==1.30.0
 colorama==0.4.6
 cryptography==38.0.4
 defusedxml==0.7.1
+dj-database-url==1.2.0
 dj-rest-auth==2.2.5
 Django==3.2.16
 django-allauth==0.50.0
 django-cloudinary-storage==0.3.0
+django-cors-headers==3.13.0
 django-filter==22.1
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
+gunicorn==20.1.0
 idna==3.4
 mypy-extensions==0.4.3
 oauthlib==3.2.2
