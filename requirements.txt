@@ -8,6 +8,8 @@ cloudinary==1.30.0
 colorama==0.4.6
 Django==3.2.16
 django-cloudinary-storage==0.3.0
+django-filter==22.1
+djangorestframework==3.14.0
 idna==3.4
 mypy-extensions==0.4.3
 pathspec==0.10.3
