@@ -38,3 +38,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class CommentDetailSerializer(CommentSerializer):
     champion = serializers.ReadOnlyField(source="owner.champion.name")
+
+
+class CommentDeleteSerializer(CommentSerializer):
+    champion = serializers.ReadOnlyField(source="owner.champion.name")
