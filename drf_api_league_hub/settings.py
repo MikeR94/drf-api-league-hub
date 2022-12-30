@@ -115,6 +115,7 @@ if "CLIENT_ORIGIN" in os.environ:
 if "CLIENT_ORIGIN_DEV" in os.environ:
     CORS_ALLOWED_ORIGINS.append(os.environ.get("CLIENT_ORIGIN_DEV"))
 
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = "drf_api_league_hub.urls"
