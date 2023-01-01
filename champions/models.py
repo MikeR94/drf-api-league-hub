@@ -54,27 +54,27 @@ class Champion(models.Model):
         max_length=32, choices=difficulty_choices, default="low"
     )
     passive_ability = models.CharField(max_length=255)
-    passive_ability_description = models.CharField(max_length=255)
+    passive_ability_description = models.TextField(blank=False)
     passive_ability_image = models.ImageField(
         upload_to="images/", default="../IvernW_muxhxj", blank=False
     )
     ability_1 = models.CharField(max_length=255)
-    ability_1_description = models.CharField(max_length=255)
+    ability_1_description = models.TextField(blank=False)
     ability_1_image = models.ImageField(
         upload_to="images/", default="../IvernW_muxhxj", blank=False
     )
     ability_2 = models.CharField(max_length=255)
-    ability_2_description = models.CharField(max_length=255)
+    ability_2_description = models.TextField(blank=False)
     ability_2_image = models.ImageField(
         upload_to="images/", default="../IvernW_muxhxj", blank=False
     )
     ability_3 = models.CharField(max_length=255)
-    ability_3_description = models.CharField(max_length=255)
+    ability_3_description = models.TextField(blank=False)
     ability_3_image = models.ImageField(
         upload_to="images/", default="../IvernW_muxhxj", blank=False
     )
     ultimate_ability = models.CharField(max_length=255)
-    ultimate_ability_description = models.CharField(max_length=255)
+    ultimate_ability_description = models.TextField(blank=False)
     ultimate_ability_image = models.ImageField(
         upload_to="images/", default="../IvernW_muxhxj", blank=False
     )
