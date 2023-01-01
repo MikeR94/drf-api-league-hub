@@ -10,7 +10,7 @@ class ChampionList(generics.ListAPIView):
     serializer_class = ChampionSerializer
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
-    ).order_by("-created_at")
+    ).order_by("name")
     filter_backends = [filters.SearchFilter, DjangoFilterBackend]
     search_fields = ["name"]
     filterset_fields = ["role"]
