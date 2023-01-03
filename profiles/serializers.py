@@ -5,7 +5,7 @@ from .models import Profile
 class ProfileSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
-    is_staff = serializers.SerializerMethodField()
+    is_staff = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
         request = self.context["request"]
