@@ -153,6 +153,11 @@ else:
     print("Connected to live database")
 
 
+# Used for quick production DB access - will remove in final version
+# DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+# print("Connected to live database")
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

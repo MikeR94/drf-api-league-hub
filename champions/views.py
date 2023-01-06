@@ -32,3 +32,10 @@ class ChampionCreate(generics.ListCreateAPIView):
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+class ChampionLeaderboard(generics.ListAPIView):
+    serializer_class = ChampionSerializer
+    queryset = Champion.objects.annotate(
+        upvotes_count=Count("upvotes", distinct=True)
+    ).order_by("-upvotes_count")
