@@ -29,6 +29,6 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CommentDelete(generics.RetrieveDestroyAPIView):
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = CommentDeleteSerializer
     queryset = Comment.objects.all()
