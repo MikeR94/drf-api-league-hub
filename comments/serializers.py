@@ -10,6 +10,7 @@ class CommentSerializer(serializers.ModelSerializer):
     profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar_image.url")
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
+    is_staff = serializers.ReadOnlyField(source="owner.profile.is_staff")
 
     def get_is_owner(self, obj):
         request = self.context["request"]
@@ -33,6 +34,7 @@ class CommentSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
             "comment",
+            "is_staff",
         ]
 
 
