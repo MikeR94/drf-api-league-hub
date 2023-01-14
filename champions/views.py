@@ -24,7 +24,6 @@ class ChampionDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ChampionCreate(generics.ListCreateAPIView):
-    permission_classes = [permissions.IsAdminUser]
     serializer_class = ChampionSerializer
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
