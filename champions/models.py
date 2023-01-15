@@ -45,17 +45,13 @@ class Champion(models.Model):
         upload_to="images/", default="../Ivern_0_iumwtm", blank=False
     )
     lore = models.TextField(blank=False)
-    role = models.CharField(
-        max_length=32, choices=role_choices, default="top", blank=False
-    )
+    role = models.CharField(max_length=32, choices=role_choices, blank=False)
     champ_class = models.CharField(
-        max_length=32, choices=champ_class_choices, default="controller", blank=False
+        max_length=32, choices=champ_class_choices, blank=False
     )
-    range = models.CharField(
-        max_length=32, choices=range_choices, default="melee", blank=False
-    )
+    range = models.CharField(max_length=32, choices=range_choices, blank=False)
     difficulty = models.CharField(
-        max_length=32, choices=difficulty_choices, default="low", blank=False
+        max_length=32, choices=difficulty_choices, blank=False
     )
     passive_ability = models.CharField(max_length=255)
     passive_ability_description = models.TextField(blank=False)
