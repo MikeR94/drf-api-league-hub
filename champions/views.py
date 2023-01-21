@@ -4,7 +4,6 @@ from champions.serializers import ChampionSerializer
 from drf_api_league_hub.permissions import IsStaffOrReadOnly
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.pagination import PageNumberPagination
 
 
 class ChampionList(generics.ListAPIView):
@@ -15,9 +14,6 @@ class ChampionList(generics.ListAPIView):
     filter_backends = [filters.SearchFilter, DjangoFilterBackend]
     search_fields = ["name"]
     filterset_fields = ["role"]
-    pagination_class = PageNumberPagination
-    pagination_class.page_size = 10
-    pagination_class.page_size_query_param = "per_page"
 
 
 class ChampionDetail(generics.RetrieveAPIView):
