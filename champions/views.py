@@ -1,7 +1,7 @@
-from rest_framework import generics, permissions, filters
+from rest_framework import generics, filters
 from champions.models import Champion
 from champions.serializers import ChampionSerializer
-from drf_api_league_hub.permissions import IsOwnerOrReadOnly
+from drf_api_league_hub.permissions import IsStaffOrReadOnly
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -24,6 +24,9 @@ class ChampionDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ChampionCreate(generics.ListCreateAPIView):
+    permission_classes = [
+        IsStaffOrReadOnly,
+    ]
     serializer_class = ChampionSerializer
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
