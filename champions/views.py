@@ -16,7 +16,7 @@ class ChampionList(generics.ListAPIView):
     filterset_fields = ["role"]
 
 
-class ChampionDetail(generics.RetrieveUpdateDestroyAPIView):
+class ChampionDetail(generics.RetrieveAPIView):
     serializer_class = ChampionSerializer
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
