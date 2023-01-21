@@ -23,6 +23,26 @@ class ChampionDetail(generics.RetrieveAPIView):
     ).order_by("-created_at")
 
 
+class ChampionEdit(generics.RetrieveUpdateAPIView):
+    permission_classes = [
+        IsStaffOrReadOnly,
+    ]
+    serializer_class = ChampionSerializer
+    queryset = Champion.objects.annotate(
+        upvotes_count=Count("upvotes", distinct=True)
+    ).order_by("-created_at")
+
+
+class ChampionDelete(generics.RetrieveDestroyAPIView):
+    permission_classes = [
+        IsStaffOrReadOnly,
+    ]
+    serializer_class = ChampionSerializer
+    queryset = Champion.objects.annotate(
+        upvotes_count=Count("upvotes", distinct=True)
+    ).order_by("-created_at")
+
+
 class ChampionCreate(generics.ListCreateAPIView):
     permission_classes = [
         IsStaffOrReadOnly,
