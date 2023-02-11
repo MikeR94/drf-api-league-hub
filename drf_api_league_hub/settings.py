@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django_extensions",
     "cloudinary_storage",
     "django.contrib.staticfiles",
     "cloudinary",
@@ -94,6 +95,17 @@ INSTALLED_APPS = [
     "upvotes",
     "comments",
 ]
+
+GRAPH_MODELS = {
+    "all_applications": True,
+    "group_models": True,
+    "app_labels": [
+        "profiles",
+        "champions",
+        "upvotes",
+        "comments",
+    ],
+}
 
 SITE_ID = 1
 
