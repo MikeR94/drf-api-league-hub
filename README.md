@@ -1,4 +1,4 @@
-# **_League Hub - Project Portfolio 5 - Django REST Framework API_**
+# **_League Hub - Django REST Framework API_**
 
 Description
 
