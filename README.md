@@ -31,13 +31,29 @@ Objective text here
 
 # Entity Relationship Diagram
 
-Description
+To create the entity relationship diagram, I used a graph modelling tool [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) which I used on my fourth project. It shows the entire relationship between all models in the database. After following the steps required to install Graph Models, I then used [dreampuf](https://dreampuf.github.io/GraphvizOnline/) to present the data in a clear and professional way. <br /><br />
+
+![Entity Relationship Diagram](documentation/readme_images/erd-image.png)
 
 [Back to top](#contents)
 
 # Database
 
-Description
+For this project, I implemented two databases.
+
+The first one was the [SQLite](https://www.sqlite.org/index.html). This was used for the development side of the project and allows you to have a small, fast, self-contained SQL database engine.
+
+The second database, which is a PostgreSQL database hosted by [ElephantSQL](https://www.elephantsql.com/) was used for the production database.
+
+To visually see the data within both databases, I used an excellent, lightweight tool called [TablePlus](https://tableplus.com/) which allows me to see all the data instantly and modify the data if needed through UI if I ever need to.
+
+### Production Database - Table Plus
+
+![Table Plus Prod](documentation/readme_images/table-plus-prod.png)
+
+### Development Database - Table Plus
+
+![Table Plus Dev](documentation/readme_images/table-plus-dev.png)
 
 [Back to top](#contents)
 
