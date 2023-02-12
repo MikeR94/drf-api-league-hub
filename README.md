@@ -165,37 +165,46 @@ The upvote model is a small model that is used to store the upvotes for a champi
 
 - ## Manual Testing
 
-| Application | Endpoint                  | Expected Result                                                                                                                                | Pass/Fail |
-| ----------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| Champions   | champions/                | Return a list of all the champions in the database ordered by name                                                                             | Pass      |
-| Champions   | champions/                | Searching for a champion by alphanumeric characters returns a list of matches                                                                  | Pass      |
-| Champions   | champions/                | Applying a Top role filter returns only champions that have the role value of Top                                                              | Pass      |
-| Champions   | champions/                | Applying a Mid role filter returns only champions that have the role value of Mid                                                              | Pass      |
-| Champions   | champions/                | Applying a Jungle role filter returns only champions that have the role value of Jungle                                                        | Pass      |
-| Champions   | champions/                | Applying a ADC role filter returns only champions that have the role value of ADC                                                              | Pass      |
-| Champions   | champions/                | Applying a Support role filter returns only champions that have the role value of Support                                                      | Pass      |
-| Champions   | champions/<int:pk>/       | Returns a single champion with a correct ID and a list of all it's values                                                                      | Pass      |
-| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID and a list of all it's values and a staff member can edit the champion                             | Pass      |
-| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID and a list of all it's values and the owner can edit the champion                                  | Pass      |
-| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID and a list of all it's values and a non-staff member can't edit the champion                       | Pass      |
-| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID and a list of all it's values and a staff member can delete the champion                           | Pass      |
-| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID and a list of all it's values and the owner can delete the champion                                | Pass      |
-| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID and a list of all it's values and a non-staff member can't delete the champion                     | Pass      |
-| Champions   | champions/create          | Return a list of all the champions a staff member can create a new champion                                                                    | Pass      |
-| Champions   | champions/create          | Return a list of all the champions a non-staff member can't create a champion                                                                  | Pass      |
-| Comments    | comments/                 | Return a list of all the comments in order of creation date                                                                                    | Pass      |
-| Comments    | comments/                 | Applying a Champion filter will return all the comments relating to that specific champion only                                                | Pass      |
-| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values                                                                       | Pass      |
-| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values and the owner can edit the comment                                    | Pass      |
-| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values and if the user isn't the owner of the comment, they can't edit it    | Pass      |
-| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values and even if the user is a staff member, they can't edit it            | Pass      |
-| Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the owner of the comment can delete the comment                | Pass      |
-| Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the user is a staff member, they can delete the comment        | Pass      |
-| Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the user is not the owner of the comment, they can't delete it | Pass      |
-| Profiles    | profiles/                 | Returns a list of all the profiles in the database ordered by creation date                                                                    | Pass      |
-| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user isn't the owner of the profile, they can't edit it    | Pass      |
-| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user is the owner of the profile, they can edit it         | Pass      |
-| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user is a staff member, they can't edit it                 | Pass      |
+| Application | Endpoint                  | Expected Result                                                                                                                                            | Pass/Fail |
+| ----------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Champions   | champions/                | Return a list of all the champions in the database ordered by name                                                                                         | Pass      |
+| Champions   | champions/                | Searching for a champion by alphanumeric characters returns a list of matches                                                                              | Pass      |
+| Champions   | champions/                | Applying a Top role filter returns only champions that have the role value of Top                                                                          | Pass      |
+| Champions   | champions/                | Applying a Mid role filter returns only champions that have the role value of Mid                                                                          | Pass      |
+| Champions   | champions/                | Applying a Jungle role filter returns only champions that have the role value of Jungle                                                                    | Pass      |
+| Champions   | champions/                | Applying a ADC role filter returns only champions that have the role value of ADC                                                                          | Pass      |
+| Champions   | champions/                | Applying a Support role filter returns only champions that have the role value of Support                                                                  | Pass      |
+| Champions   | champions/<int:pk>/       | Returns a single champion with a correct ID and a list of all it's values                                                                                  | Pass      |
+| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID and a list of all it's values and a staff member can edit the champion                                         | Pass      |
+| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID and a list of all it's values and the owner can edit the champion                                              | Pass      |
+| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID and a list of all it's values and a non-staff member can't edit the champion                                   | Pass      |
+| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID and a list of all it's values and a staff member can delete the champion                                       | Pass      |
+| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID and a list of all it's values and the owner can delete the champion                                            | Pass      |
+| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID and a list of all it's values and a non-staff member can't delete the champion                                 | Pass      |
+| Champions   | champions/create          | Return a list of all the champions a staff member can create a new champion                                                                                | Pass      |
+| Champions   | champions/create          | Return a list of all the champions a non-staff member can't create a champion                                                                              | Pass      |
+| Comments    | comments/                 | Return a list of all the comments in order of creation date                                                                                                | Pass      |
+| Comments    | comments/                 | Applying a Champion filter will return all the comments relating to that specific champion only                                                            | Pass      |
+| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values                                                                                   | Pass      |
+| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values and the owner can edit the comment                                                | Pass      |
+| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values and if the user isn't the owner of the comment, they can't edit it                | Pass      |
+| Comments    | comments/<int:pk>/        | Returns a single comment with a correct ID and a list of all it's values and even if the user is a staff member, they can't edit it                        | Pass      |
+| Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the owner of the comment can delete the comment                            | Pass      |
+| Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the user is a staff member, they can delete the comment                    | Pass      |
+| Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the user is not the owner of the comment, they can't delete it             | Pass      |
+| Profiles    | profiles/                 | Returns a list of all the profiles in the database ordered by creation date                                                                                | Pass      |
+| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user isn't the owner of the profile, they can't edit it                | Pass      |
+| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user is the owner of the profile, they can edit it                     | Pass      |
+| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user is a staff member, they can't edit it                             | Pass      |
+| Upvotes     | upvotes/                  | Returns a list of all the current upvotes in the database                                                                                                  | Pass      |
+| Upvotes     | upvotes/                  | If a user is logged in, they can make a post request to create an upvote for a champion                                                                    | Pass      |
+| Upvotes     | upvotes/                  | If a user is logged in and they have already upvoted a champion and make a second post request to upvote it again, it fails with "Possible duplicate vote" | Pass      |
+| Upvotes     | upvotes/                  | If a user is logged in and they have not already upvoted a champion and make a post request to upvote it, it succeeds and increases the upvote_count by 1  | Pass      |
+| Upvotes     | upvotes/                  | If a user is logged out they are not able to upvote a champion                                                                                             | Pass      |
+| Upvotes     | upvotes/<int:pk>/         | Returns a single upvote with a correct ID and a list of all it's values                                                                                    | Pass      |
+| Upvotes     | upvotes/<int:pk>/         | If the user is the owner of the upvote, they can delete the upvote and it will delete it from the champion and decrease the upvote_count by 1              | Pass      |
+| Upvotes     | upvotes/<int:pk>/         | If the user is not the owner of the upvote, they are unable to delete the upvote                                                                           | Pass      |
+| Upvotes     | upvotes/<int:pk>/         | If the user is not the owner of the upvote but is a staff member, they are unable to delete the upvote                                                     | Pass      |
 
 - ## PEP8 Validation
 
