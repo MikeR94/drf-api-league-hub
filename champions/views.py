@@ -22,7 +22,7 @@ class ChampionList(generics.ListAPIView):
 
 class ChampionDetail(generics.RetrieveAPIView):
     """
-    Retrieves and returns a champion 
+    Retrieves and returns a champion
     ordered by creation date
     """
     serializer_class = ChampionSerializer
