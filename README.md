@@ -208,7 +208,109 @@ The upvote model is a small model that is used to store the upvotes for a champi
 
 - ## PEP8 Validation
 
-  - Code Validation Here
+  I've tested all the files through the [CI PEP8 Linter](https://pep8ci.herokuapp.com/#) and although I found a few errors, I have rectified these and now all files are passing with "All clear, no errors found"
+
+### drf_api_league_hub
+
+**manage.py**
+
+![drf_pep8_1](documentation/readme_images/manage_pep8.png)
+
+**wsgi.py**
+
+![drf_pep8_2](documentation/readme_images/wsgi_pep8.png)
+
+**views.py**
+
+![drf_pep8_3](documentation/readme_images/views_pep8.png)
+
+**urls.py**
+
+![drf_pep8_4](documentation/readme_images/urls_pep8.png)
+
+**settings.py**
+
+![drf_pep8_5](documentation/readme_images/settings_pep8.png)
+
+**serializer.py**
+
+![drf_pep8_6](documentation/readme_images/serializer_pep8.png)
+
+**permissions.py**
+
+![drf_pep8_7](documentation/readme_images/permissions_pep8.png)
+
+### upvotes
+
+**upvotes - views.py**
+
+![drf_pep8_8](documentation/readme_images/upvotes_views_pep8.png)
+
+**upvotes - urls.py**
+
+![drf_pep8_9](documentation/readme_images/upvotes_urls_pep8.png)
+
+**upvotes - serializers.py**
+
+![drf_pep8_9](documentation/readme_images/upvotes_serializer_pep8.png)
+
+**upvotes - models.py**
+
+![drf_pep8_10](documentation/readme_images/upvotes_model_pep8.png)
+
+### profiles
+
+**profiles - views.py**
+
+![drf_pep8_11](documentation/readme_images/profiles_views_pep8.png)
+
+**profiles - urls.py**
+
+![drf_pep8_12](documentation/readme_images/profiles_urls_pep8.png)
+
+**profiles - serializers.py**
+
+![drf_pep8_13](documentation/readme_images/profiles_serializer_pep8.png)
+
+**profiles - models.py**
+
+![drf_pep8_14](documentation/readme_images/profiles_model_pep8.png)
+
+### comments
+
+**comments - views.py**
+
+![drf_pep8_15](documentation/readme_images/comments_views_pep8.png)
+
+**comments - urls.py**
+
+![drf_pep8_16](documentation/readme_images/comments_urls_pep8.png)
+
+**comments - serializers.py**
+
+![drf_pep8_17](documentation/readme_images/comments_serializer_pep8.png)
+
+**comments - models.py**
+
+![drf_pep8_18](documentation/readme_images/comments_model_pep8.png)
+
+### champions
+
+**champions - views.py**
+
+![drf_pep8_19](documentation/readme_images/champions_views_pep8.png)
+
+**champions - urls.py**
+
+![drf_pep8_20](documentation/readme_images/champions_urls_pep8.png)
+
+**champions - serializers.py**
+
+![drf_pep8_21](documentation/readme_images/champions_serializer_pep8.png)
+
+**champions - models.py**
+
+![drf_pep8_22](documentation/readme_images/champions_model_pep8.png)
 
 - ## Bugs Fixed
 
@@ -285,6 +387,7 @@ The upvote model is a small model that is used to store the upvotes for a champi
 - [Virutal Environment](https://docs.python.org/3/library/venv.html) - Used to create a virtual environment
 - [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to generate a .dot file for all apps and models
 - [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Used to present the .dot file in the form of a database diagram
+- [CI PEP8 Linter](https://pep8ci.herokuapp.com/#) - Used to check the Python code for any linting issues
 
 [Back to top](#contents)
 
