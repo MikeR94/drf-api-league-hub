@@ -14,14 +14,10 @@ class IsStaffOrReadOnly(IsAuthenticatedOrReadOnly):
         if request.method in permissions.SAFE_METHODS:
             return True
         return request.user and request.user.is_staff
-   
+
     
 class IsStaffOrOwnerOrReadOnly(permissions.BasePermission):
-    def has_permission(self, request, view):
+    def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
-
-        return (
-            request.user and
-            (request.user.is_staff or request.user.is_owner)
-        )
+        return obj.owner == request.user or request.user.is_staff
