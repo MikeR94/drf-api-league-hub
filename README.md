@@ -61,6 +61,8 @@ To visually see the data within both databases, I used an excellent, lightweight
 
 ### Champions
 
+The champions model is designed to contain all the relevant information regarding a League of Legends champion.
+
 | Database Value               | Field Type    | Field Argument                                                |
 | ---------------------------- | ------------- | ------------------------------------------------------------- |
 | owner                        | ForeignKey    | User, on_delete=models.CASCADE                                |
@@ -120,6 +122,32 @@ difficulty_choices = [
     ("high", "High"),
 ]
 ```
+
+### Comment
+
+The comment model allows the user to create a comment on a champion. If a comment is deleted, it is deleted from both the User and Champion models
+
+| Database Value | Field Type    | Field Argument                     |
+| -------------- | ------------- | ---------------------------------- |
+| owner          | ForeignKey    | User, on_delete=models.CASCADE     |
+| champion       | ForeignKey    | Champion, on_delete=models.CASCADE |
+| created_at     | DateTimeField | auto_now_add=True                  |
+| updated_at     | DateTimeField | auto_now=True                      |
+| comment        | TextField     |                                    |
+
+### Profile
+
+The profile model has a one-to-one relationship with the Django User model. This means that for every User that signs up to the website, there will be a corresponding Profile model which is used to define some additional values relative to the user. I've added a boolean field which will be used to determine if that user is a staff member or not. If this value is set to True then they will have staff permissions and will be able to perform all functionality of that of a staff member.
+
+| Database Value | Field Type    | Field Argument                                       |
+| -------------- | ------------- | ---------------------------------------------------- |
+| owner          | OneToOneField | User, on_delete=models.CASCADE                       |
+| created_at     | DateTimeField | auto_now_add=True                                    |
+| updated_at     | DateTimeField | auto_now=True                                        |
+| first_name     | CharField     | max_length=255, blank=True                           |
+| last_name      | CharField     | max_length=255, blank=True                           |
+| is_staff       | BooleanField  | default=False                                        |
+| avatar_image   | ImageField    | upload_to="images/", default="../Amumu_0_wzmdhw.jpg" |
 
 [Back to top](#contents)
 
