@@ -26,6 +26,8 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+REST_PAGINATION = "rest_framework.pagination.PageNumberPagination"
+
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         (
@@ -34,7 +36,7 @@ REST_FRAMEWORK = {
             else "dj_rest_auth.jwt_auth.JWTCookieAuthentication"
         )
     ],
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_PAGINATION_CLASS": REST_PAGINATION,
     "PAGE_SIZE": 100,
     "DATETIME_FORMAT": "%d %b %Y",
 }
@@ -50,8 +52,10 @@ JWT_AUTH_COOKIE = "my-app-auth"
 JWT_AUTH_REFRESH_COOKIE = "my-refresh-token"
 JWT_AUTH_SAMESITE = "None"
 
+API_SERIALIZER = "drf_api_league_hub.serializers.CurrentUserSerializer"
+
 REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZER": "drf_api_league_hub.serializers.CurrentUserSerializer"
+    "USER_DETAILS_SERIALIZER": API_SERIALIZER
 }
 
 # Quick-start development settings - unsuitable for production
@@ -160,30 +164,39 @@ if "DEV" in os.environ:
         }
     }
 else:
-    DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+    DATABASES = {"default": dj_database_url.parse(
+        os.environ.get("DATABASE_URL"))}
     print("Connected to live database")
-
-
-# Used for quick production DB access - will remove in final version
-# DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
-# print("Connected to live database")
 
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
+USAV_VAL = (
+    "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
+    )
+ML_VAL = (
+    "django.contrib.auth.password_validation.MinimumLengthValidator"
+    )
+CP_VAL = (
+    "django.contrib.auth.password_validation.CommonPasswordValidator"
+    )
+NP_VAL = (
+    "django.contrib.auth.password_validation.NumericPasswordValidator"
+    )
+
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": USAV_VAL,
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": ML_VAL,
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": CP_VAL,
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": NP_VAL,
     },
 ]
 
