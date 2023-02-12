@@ -90,7 +90,7 @@ To visually see the data within both databases, I used an excellent, lightweight
 | ultimate_ability_description | TextField     | blank=False                                                   |
 | ultimate_ability_image       | ImageField    | upload_to="images/", default="../IvernW_muxhxj", blank=False  |
 
-```JavaScript
+```Python
 role_choices = [
     ("top", "Top"),
     ("mid", "Mid"),
