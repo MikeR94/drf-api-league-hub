@@ -212,15 +212,19 @@ The upvote model is a small model that is used to store the upvotes for a champi
 
 - ## Bugs Fixed
 
-  ### Bug 1
+  ### Authenticated users deleting comments
 
-  - Bug 1 issue <br />
+  When conducting manual tests for the API endpoints, I encountered a small bug which allowed users to delete comments that were not theirs. Although I had handled this issue in the front end, locking down the back-end is the most suitable solution to prevent any malicious attempt to delete comments by directly targeting the API.
+
+  The main problem was due to permissions. The comments/delete/<int:pk>/ endpoint was only checking if the user making the request was authenticated only.
+
+  To fix this, I created a new permission which would check if the user making the request was either a staff member or the owner of the comment<br />
+
+  ![IsStaffOrOwnerOrReadOnly](documentation/readme_images/isstafforownerorreadonly-image.png)
 
 - ## Bugs Unresolved
 
-  ### Buf Unresolved 1
-
-  - Bug Unresolved 1<br />
+  - As far as I'm aware, after extensive manual testing, I'm not aware of any unresolved bugs<br />
 
 # Technologies Used
 
