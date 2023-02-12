@@ -11,10 +11,10 @@ You can view the live site here - <a href="https://ci-league-hub.herokuapp.com/"
 - [**Database**](#database)
 - [**Models**](#models)
 - [**Testing**](#testing)
-    - [**Manual Testing**](#manual-testing)
-    - [**PEP8 Validation**](#pep8-validation)
-    - [**Bugs Fixed**](#bugs-fixed)
-    - [**Bugs Unresolved**](#bugs-unresolved)
+  - [**Manual Testing**](#manual-testing)
+  - [**PEP8 Validation**](#pep8-validation)
+  - [**Bugs Fixed**](#bugs-fixed)
+  - [**Bugs Unresolved**](#bugs-unresolved)
 - [**Technologies Used**](#technologies-used)
 - [**Deployment To Heroku**](#deployment-to-heroku)
 - [**Cloning This Project**](#cloning-and-setting-up-this-project)
@@ -59,7 +59,67 @@ To visually see the data within both databases, I used an excellent, lightweight
 
 # Models
 
-Description
+### Champions
+
+| Database Value               | Field Type    | Field Argument                                                |
+| ---------------------------- | ------------- | ------------------------------------------------------------- |
+| owner                        | ForeignKey    | User, on_delete=models.CASCADE                                |
+| created_at                   | DateTimeField | auto_now_add=True                                             |
+| updated_at                   | DateTimeField | auto_now=True                                                 |
+| name                         | CharField     | max_length=255                                                |
+| alias                        | CharField     | max_length=255                                                |
+| champ_image                  | ImageField    | upload_to="images/", default="../Ivern_0_iumwtm", blank=False |
+| lore                         | TextField     | blank=False                                                   |
+| role                         | CharField     | max_length=32, choices=role_choices, blank=False              |
+| champ_class                  | CharField     | max_length=32, choices=champ_class_choices, blank=False       |
+| range                        | CharField     | max_length=32, choices=range_choices, blank=False             |
+| difficulty                   | CharField     | max_length=32, choices=difficulty_choices, blank=False        |
+| passive_ability              | CharField     | max_length=255                                                |
+| passive_ability_description  | TextField     | blank=False                                                   |
+| passive_ability_image        | ImageField    | upload_to="images/", default="../IvernW_muxhxj", blank=False  |
+| ability_1                    | CharField     | max_length=255                                                |
+| ability_1_description        | TextField     | blank=False                                                   |
+| ability_1_image              | ImageField    | upload_to="images/", default="../IvernW_muxhxj", blank=False  |
+| ability_2                    | CharField     | max_length=255                                                |
+| ability_2_description        | TextField     | blank=False                                                   |
+| ability_2_image              | ImageField    | upload_to="images/", default="../IvernW_muxhxj", blank=False  |
+| ability_3                    | CharField     | max_length=255                                                |
+| ability_3_description        | TextField     | blank=False                                                   |
+| ability_3_image              | ImageField    | upload_to="images/", default="../IvernW_muxhxj", blank=False  |
+| ultimate_ability             | CharField     | max_length=255                                                |
+| ultimate_ability_description | TextField     | blank=False                                                   |
+| ultimate_ability_image       | ImageField    | upload_to="images/", default="../IvernW_muxhxj", blank=False  |
+
+```
+role_choices = [
+    ("top", "Top"),
+    ("mid", "Mid"),
+    ("jungle", "Jungle"),
+    ("adc", "ADC"),
+    ("support", "Support"),
+]
+
+champ_class_choices = [
+    ("controller", "Controller"),
+    ("fighter", "Fighter"),
+    ("mage", "Mage"),
+    ("marksman", "Marksman"),
+    ("slayer", "Slayer"),
+    ("tank", "Tank"),
+    ("specialist", "Specialist"),
+]
+
+range_choices = [
+    ("melee", "Melee"),
+    ("ranged", "Ranged"),
+]
+
+difficulty_choices = [
+    ("low", "Low"),
+    ("moderate", "Moderate"),
+    ("high", "High"),
+]
+```
 
 [Back to top](#contents)
 
@@ -68,9 +128,10 @@ Description
 - ## Manual Testing
   Manual Testing
 
-| Status  | **Test** |
-| :-----: | :--------------------------------- |
-| &check; | Manual test 1                      |
+| Status  | **Test**      |
+| :-----: | :------------ |
+| &check; | Manual test 1 |
+| &check; | Manual test 1 |
 
 - ## PEP8 Validation
 
@@ -81,7 +142,6 @@ Description
   ### Bug 1
 
   - Bug 1 issue <br />
-
 
 - ## Bugs Unresolved
 
@@ -94,13 +154,12 @@ Description
 ## Languages
 
 - [Python](https://www.python.org/) - A programming language that lets you work quickly
-and integrate systems more effectively
+  and integrate systems more effectively
 
 ## Libraries and Frameworks
 
-- [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. 
+- [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 - [Django REST Framework](https://pypi.org/project/djangorestframework/) - A powerful and flexible toolkit for building Web APIs
-
 
 ## Packages
 
@@ -108,11 +167,11 @@ and integrate systems more effectively
 - [black](https://pypi.org/project/black/) - A Python code formatter
 - [certifi](https://pypi.org/project/certifi/) - For validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts
 - [charset-normalizer](https://pypi.org/project/charset-normalizer/) - A library that helps you read text from an unknown charset encoding
-- [cloudinary](https://pypi.org/project/cloudinary/) - Easily integrate your application with Cloudinary  
-- [dj-database-url](https://pypi.org/project/dj-database-url/) -  Allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+- [cloudinary](https://pypi.org/project/cloudinary/) - Easily integrate your application with Cloudinary
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - Allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
 - [dj-rest-auth](https://pypi.org/project/dj-rest-auth/) - API endpoints for handling authentication securely in Django Rest Framework
 - [django-allauth](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication
-- [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - package that facilitates integration with Cloudinary by implementing Django Storage API 
+- [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/) - package that facilitates integration with Cloudinary by implementing Django Storage API
 - [django-cors-headers](https://pypi.org/project/django-cors-headers/) - Adds Cross-Origin Resource Sharing (CORS) headers to responses.
 - [django-extensions](https://pypi.org/project/django-extensions/) - Collection of global custom management extensions for the Django Framework.
 - [django-filter](https://pypi.org/project/django-filter/) - Declaratively add dynamic QuerySet filtering from URL parameters.
@@ -148,7 +207,6 @@ and integrate systems more effectively
 - [Virutal Environment](https://docs.python.org/3/library/venv.html) - Used to create a virtual environment
 - [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to generate a .dot file for all apps and models
 - [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Used to present the .dot file in the form of a database diagram
-
 
 [Back to top](#contents)
 
