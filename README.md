@@ -1,6 +1,6 @@
 # **_League Hub - Django REST Framework API_**
 
-Description
+This repository is the back-end REST API which is used by my front-end project, [League Hub](https://ci-league-hub.herokuapp.com/).
 
 You can view the live site here - <a href="https://ci-league-hub.herokuapp.com/" target="_blank" rel="noopener">League Hub</a>
 
