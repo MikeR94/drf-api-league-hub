@@ -192,6 +192,10 @@ The upvote model is a small model that is used to store the upvotes for a champi
 | Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the owner of the comment can delete the comment                | Pass      |
 | Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the user is a staff member, they can delete the comment        | Pass      |
 | Comments    | comments/delete/<int:pk>/ | Returns a single comment with a correct ID and a list of all it's values and if the user is not the owner of the comment, they can't delete it | Pass      |
+| Profiles    | profiles/                 | Returns a list of all the profiles in the database ordered by creation date                                                                    | Pass      |
+| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user isn't the owner of the profile, they can't edit it    | Pass      |
+| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user is the owner of the profile, they can edit it         | Pass      |
+| Profiles    | profiles/<int:pk>/        | Returns a single profile with a correct ID and a list of all it's values and if the user is a staff member, they can't edit it                 | Pass      |
 
 - ## PEP8 Validation
 
