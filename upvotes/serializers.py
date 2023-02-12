@@ -4,6 +4,9 @@ from django.db import IntegrityError
 
 
 class UpVoteSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the upvote model
+    """
     owner = serializers.ReadOnlyField(source="owner.username")
     champion_name = serializers.ReadOnlyField(source="champion.name")
 
@@ -18,6 +21,9 @@ class UpVoteSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data):
+        """
+        Create a new upvote if it is unique
+        """
         try:
             return super().create(validated_data)
         except IntegrityError:

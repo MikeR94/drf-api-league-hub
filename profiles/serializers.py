@@ -3,6 +3,9 @@ from .models import Profile
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Profile model
+    """
     username = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     is_staff = serializers.ReadOnlyField()
