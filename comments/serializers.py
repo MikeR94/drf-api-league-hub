@@ -10,7 +10,8 @@ class CommentSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
-    profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar_image.url")
+    profile_avatar = serializers.ReadOnlyField(
+        source="owner.profile.avatar_image.url")
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
     is_staff = serializers.ReadOnlyField(source="owner.profile.is_staff")
@@ -60,8 +61,8 @@ class CommentDetailSerializer(CommentSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
-    profile_avatar = serializers.ReadOnlyField(source="owner.profile.avatar_image.url")
+    profile_avatar = serializers.ReadOnlyField(
+        source="owner.profile.avatar_image.url")
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
     is_staff = serializers.ReadOnlyField(source="owner.profile.is_staff")
-
