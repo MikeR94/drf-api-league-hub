@@ -149,6 +149,16 @@ The profile model has a one-to-one relationship with the Django User model. This
 | is_staff       | BooleanField  | default=False                                        |
 | avatar_image   | ImageField    | upload_to="images/", default="../Amumu_0_wzmdhw.jpg" |
 
+### Upvote
+
+The upvote model is a small model that is used to store the upvotes for a champion. An upvote is a foreign key of both the User and Champion model and if the User or the Champion is ever deleted then any Upvotes related to either the User or the Champion will be deleted.
+
+| Database Value | Field Type    | Field Argument                                             |
+| -------------- | ------------- | ---------------------------------------------------------- |
+| owner          | ForeignKey    | User, on_delete=models.CASCADE                             |
+| champion       | ForeignKey    | Champion, on_delete=models.CASCADE, related_name="upvotes" |
+| created_at     | DateTimeField | auto_now_add=True                                          |
+
 [Back to top](#contents)
 
 # Testing
