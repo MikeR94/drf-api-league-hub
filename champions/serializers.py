@@ -4,16 +4,25 @@ from upvotes.models import UpVote
 
 
 class ChampionSerializer(serializers.ModelSerializer):
+    """
+    Champion serializer to convert the model into JSON
+    """
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     upvotes_id = serializers.SerializerMethodField()
     upvotes_count = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
+        """
+        Method to check if the user is the owner
+        """
         request = self.context["request"]
         return request.user == obj.owner
 
     def get_upvotes_id(self, obj):
+        """
+        Method to retrieve the ID of an Upvote for a Champion
+        """
         user = self.context["request"].user
         if user.is_authenticated:
             upvote = UpVote.objects.filter(owner=user, champion=obj).first()

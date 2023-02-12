@@ -7,6 +7,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ChampionList(generics.ListAPIView):
+    """
+    Return a list of all champions ordered by name
+    with additional search and filter functionality
+    """
     serializer_class = ChampionSerializer
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
@@ -17,6 +21,10 @@ class ChampionList(generics.ListAPIView):
 
 
 class ChampionDetail(generics.RetrieveAPIView):
+    """
+    Retrieves and returns a champion 
+    ordered by creation date
+    """
     serializer_class = ChampionSerializer
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)
@@ -24,6 +32,10 @@ class ChampionDetail(generics.RetrieveAPIView):
 
 
 class ChampionEdit(generics.RetrieveUpdateAPIView):
+    """
+    Allows staff members only to retrieve and update
+    a champion
+    """
     permission_classes = [
         IsStaffOrReadOnly,
     ]
@@ -34,6 +46,10 @@ class ChampionEdit(generics.RetrieveUpdateAPIView):
 
 
 class ChampionDelete(generics.RetrieveDestroyAPIView):
+    """
+    Allows staff members only to retrieve and delete
+    a champion
+    """
     permission_classes = [
         IsStaffOrReadOnly,
     ]
@@ -44,6 +60,9 @@ class ChampionDelete(generics.RetrieveDestroyAPIView):
 
 
 class ChampionCreate(generics.ListCreateAPIView):
+    """
+    Allows staff members only to create a champion
+    """
     permission_classes = [
         IsStaffOrReadOnly,
     ]
@@ -57,6 +76,9 @@ class ChampionCreate(generics.ListCreateAPIView):
 
 
 class ChampionLeaderboard(generics.ListAPIView):
+    """
+    Returns a list of champions ordered by upvotes
+    """
     serializer_class = ChampionSerializer
     queryset = Champion.objects.annotate(
         upvotes_count=Count("upvotes", distinct=True)

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class Champion(models.Model):
     """
-    Champion model
+    Model for the Champion
     """
 
     role_choices = [
