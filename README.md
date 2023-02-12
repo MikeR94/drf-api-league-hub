@@ -25,7 +25,7 @@ You can view the live site here - <a href="https://ci-league-hub.herokuapp.com/"
 
 # Objective
 
-Objective text here
+The objective of creating this API is to provide a fast, reliable and secure means of providing data to be used in my [League Hub](https://ci-league-hub.herokuapp.com/) front-end project. I aim to create simple, intuitive and purposeful models that will be used to represent the data required for the project. All API endpoints will serve a specific purpose and will be tested thoroughly to prevent any attempt to create/edit/delete any data without the correct permissions.
 
 [Back to top](#contents)
 
