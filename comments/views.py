@@ -1,10 +1,9 @@
 from rest_framework import generics, permissions
-from drf_api_league_hub.permissions import IsOwnerOrReadOnly
+from drf_api_league_hub.permissions import IsOwnerOrReadOnly, IsStaffOrReadOnly
 from comments.models import Comment
 from comments.serializers import (
     CommentSerializer,
     CommentDetailSerializer,
-    CommentDeleteSerializer,
 )
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -29,6 +28,6 @@ class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class CommentDelete(generics.RetrieveDestroyAPIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    serializer_class = CommentDeleteSerializer
+    permission_classes = [IsStaffOrReadOnly]
+    serializer_class = CommentDetailSerializer
     queryset = Comment.objects.all()
