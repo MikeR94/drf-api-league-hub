@@ -19,7 +19,7 @@ class UpVoteList(generics.ListCreateAPIView):
 
 class UpVoteDetail(generics.RetrieveDestroyAPIView):
     """
-    Retrieve and destroy an upvote if the upvote 
+    Retrieve and destroy an upvote if the upvote
     belongs to the owner
     """
     permission_classes = [IsOwnerOrReadOnly]
