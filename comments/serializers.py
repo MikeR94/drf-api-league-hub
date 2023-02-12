@@ -53,6 +53,9 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class CommentDetailSerializer(CommentSerializer):
+    """
+    CommentDetail serializer to convert the model into JSON
+    """
     champion = serializers.ReadOnlyField(source="owner.champion.name")
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()

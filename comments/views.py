@@ -9,6 +9,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class CommentList(generics.ListCreateAPIView):
+    """
+    List all comments and allow users to create a comment
+    if they have an account
+    """
     serializer_class = CommentSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Comment.objects.all()
@@ -21,13 +25,21 @@ class CommentList(generics.ListCreateAPIView):
         serializer.save(owner=self.request.user)
 
 
-class CommentDetail(generics.RetrieveUpdateDestroyAPIView):
+class CommentDetail(generics.RetrieveUpdateAPIView):
+    """
+    Retrieve a comment and allow the comment owner to
+    update the comment
+    """
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = CommentDetailSerializer
     queryset = Comment.objects.all()
 
 
 class CommentDelete(generics.RetrieveDestroyAPIView):
+    """
+    Allow a comment to be deleted if the user is a staff
+    member or the comment owner
+    """
     permission_classes = [IsStaffOrOwnerOrReadOnly]
     serializer_class = CommentDetailSerializer
     queryset = Comment.objects.all()
