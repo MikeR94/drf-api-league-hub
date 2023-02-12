@@ -164,12 +164,26 @@ The upvote model is a small model that is used to store the upvotes for a champi
 # Testing
 
 - ## Manual Testing
-  Manual Testing
 
-| Status  | **Test**      |
-| :-----: | :------------ |
-| &check; | Manual test 1 |
-| &check; | Manual test 1 |
+| Application | Endpoint                  | Expected Result                                                                                                             | Pass/Fail |
+| ----------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------- |
+| Champions   | champions/                | Return a list of all the champions in the database ordered by name                                                          | Pass      |
+| Champions   | champions/                | Searching for a champion by alphanumeric characters returns a list of matches                                               | Pass      |
+| Champions   | champions/                | Applying a Top role filter returns only champions that have the role value of Top                                           | Pass      |
+| Champions   | champions/                | Applying a Mid role filter returns only champions that have the role value of Mid                                           | Pass      |
+| Champions   | champions/                | Applying a Jungle role filter returns only champions that have the role value of Jungle                                     | Pass      |
+| Champions   | champions/                | Applying a ADC role filter returns only champions that have the role value of ADC                                           | Pass      |
+| Champions   | champions/                | Applying a Support role filter returns only champions that have the role value of Support                                   | Pass      |
+| Champions   | champions/<int:pk>/       | Returns a single champion with a correct ID with a list of all it's values                                                  | Pass      |
+| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID with a list of all it's values and a staff member can edit the champion         | Pass      |
+| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID with a list of all it's values and the owner can edit the champion              | Pass      |
+| Champions   | champions/<int:pk>/edit   | Returns a single champion with a correct ID with a list of all it's values and a non-staff member can't edit the champion   | Pass      |
+| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID with a list of all it's values and a staff member can delete the champion       | Pass      |
+| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID with a list of all it's values and the owner can delete the champion            | Pass      |
+| Champions   | champions/<int:pk>/delete | Returns a single champion with a correct ID with a list of all it's values and a non-staff member can't delete the champion | Pass      |
+| Champions   | champions/create          | Return a list of all the champions a staff member can create a new champion                                                 | Pass      |
+| Champions   | champions/create          | Return a list of all the champions a non-staff member can't create a champion                                               | Pass      |
+| Champions   | champions/leaderboard     | Return a list of all the champions in order of upvotes_count                                                                | Pass      |
 
 - ## PEP8 Validation
 
