@@ -1,5 +1,8 @@
 from rest_framework import generics, permissions
-from drf_api_league_hub.permissions import IsOwnerOrReadOnly, IsStaffOrOwnerOrReadOnly
+from drf_api_league_hub.permissions import (
+    IsOwnerOrReadOnly,
+    IsStaffOrOwnerOrReadOnly
+    )
 from comments.models import Comment
 from comments.serializers import (
     CommentSerializer,
