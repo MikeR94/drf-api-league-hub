@@ -759,7 +759,11 @@ You can either choose **Enable Automatic Deploys** or **Deploy Branch**. I chose
 
 ### Content
 
-- Content 1
+This project was created and inspired by following the [Code Institute](https://codeinstitute.net/) DRF-API walkthrough and has been modified to meet the League Hub's demands
+
+I spent some time looking through the official [Django REST Framework Documentation](https://www.django-rest-framework.org/api-guide/permissions/) to help me further understand some concepts, especially the permissions one where I needed to create a new **IsStaffOrOwnerOrReadOnly** permission
+
+All the champion data stored in the database has been sourced from the official [League of Legends](https://www.leagueoflegends.com/en-gb/champions/) website
 
 [Back to top](#contents)
 
