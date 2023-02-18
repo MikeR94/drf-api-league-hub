@@ -765,7 +765,14 @@ You can either choose **Enable Automatic Deploys** or **Deploy Branch**. I chose
 
 # Acknowledgments
 
-Acknowledgements
+I have thoroughly enjoyed developing this project and although I found React to be challenging learning curve, after much perseverance I feel like I have a good baseline knowledge when it comes to developing applications that use an advanced front-end framework like React that talk to a back-end API developed using the Django REST Framework.
+Unlike my other projects which I was able to work on full time, I had successfully landed a software developer job and I only had time to work on this project in my spare time whilst trying to have a balanced personal life. This was extremely challenging for myself, and I am very proud to have managed to finally submit my fifth and final project with [Code Institute](https://codeinstitute.net/)
+
+I would like to thank my mentor Marcel, my educator Luke Walters, my brother Jack Ralph, my partner Beth, the Slack community, and all at the [Code Institute](https://codeinstitute.net/) for their help and support.
+
+It has been an incredible journey and I’m extremely excited to see where this adventure will take me.
+
+Thank you so much for a fantastic experience [Code Institute](https://codeinstitute.net/)!
 
 Mike Ralph 2023.
 
