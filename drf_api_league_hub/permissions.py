@@ -3,6 +3,10 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
+    """
+    Custom permission to check if the requester
+    is the owner
+    """
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
@@ -10,6 +14,10 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
 
 
 class IsStaffOrReadOnly(IsAuthenticatedOrReadOnly):
+    """
+    Custom permission to check if the requester
+    is a staff member
+    """
     def has_permission(self, request, view):
         if request.method in permissions.SAFE_METHODS:
             return True
@@ -17,6 +25,10 @@ class IsStaffOrReadOnly(IsAuthenticatedOrReadOnly):
 
 
 class IsStaffOrOwnerOrReadOnly(permissions.BasePermission):
+    """
+    Custom permission to check if the requester
+    is the owner or staff member
+    """
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
